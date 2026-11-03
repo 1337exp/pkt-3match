@@ -1,0 +1,29 @@
+{
+  "name": "pkt-3match",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://666.io",
+  "description": "Три в ряд с перетаскиванием шара на Vue 3 и Three.js. Чистое ядро логики и 3D-рендер без спрайтов.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "typecheck": "vue-tsc --noEmit",
+    "screenshot": "node scripts/screenshot.mjs",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "three": "^0.186.1",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "playwright-core": "^1.64.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4",
+    "vue-tsc": "^3.3.13"
+  }
+}

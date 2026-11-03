@@ -1,0 +1,271 @@
+:root {
+    color-scheme: dark;
+    --bg: #070911;
+    --panel: #12162a;
+    --line: #262c4a;
+    --text: #dfe4ff;
+    --muted: #7f88b5;
+    --accent: #8a7dff;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    height: 100dvh;
+}
+
+.hud {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    padding-top: max(10px, env(safe-area-inset-top));
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    min-width: 54px;
+}
+
+.stat span {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* Узкий телефон: шапка с «Меню» и «Заново» иначе не помещается. */
+@media (max-width: 420px) {
+    .hud {
+        gap: 10px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hud-button {
+        padding: 8px 10px;
+    }
+
+    .stat {
+        min-width: 0;
+    }
+
+    .shapes {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.stat b {
+    font-size: 20px;
+    font-variant-numeric: tabular-nums;
+}
+
+.hud-button {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+}
+
+.hud-button:active {
+    background: var(--line);
+}
+
+.restart {
+    margin-left: auto;
+}
+
+.shapes {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 0;
+    padding: 0 16px 6px;
+    list-style: none;
+    overflow-x: auto;
+}
+
+.shape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    min-width: 46px;
+    padding: 6px 4px 4px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+    color: var(--muted);
+}
+
+.shape.hit {
+    color: var(--text);
+    border-color: var(--accent);
+}
+
+.shape-flash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+}
+
+.shape.hit .shape-flash {
+    animation: shape-pulse 0.7s ease-out;
+}
+
+.shape-icon {
+    display: grid;
+    gap: 2px;
+}
+
+.shape-icon i {
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+}
+
+.shape-icon i.on {
+    background: currentColor;
+}
+
+.shape-label {
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.shape-label b {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+@keyframes shape-pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 var(--accent));
+    }
+    25% {
+        transform: scale(1.5);
+        filter: drop-shadow(0 0 6px var(--accent));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 var(--accent));
+    }
+}
+
+.debug {
+    margin: 0;
+    padding: 0 16px 4px;
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.error {
+    margin: 0;
+    padding: 0 16px;
+    color: #ff8a8a;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+    padding: 24px 16px;
+}
+
+.menu-title {
+    margin: 0;
+    font-size: 32px;
+}
+
+.menu-lead {
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: min(100%, 420px);
+}
+
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--panel);
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.menu-card:hover:not(:disabled) {
+    border-color: var(--accent);
+}
+
+.menu-card:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.menu-card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.menu-soon {
+    margin-left: 8px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.menu-card-text {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.board {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: block;
+    /* Палец рисует ход по полю: браузер не должен прокручивать или масштабировать страницу. */
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}

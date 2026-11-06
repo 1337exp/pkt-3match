@@ -13,8 +13,6 @@
 
 ## Запуск
 
-Использует нашу общую `@1337exp/pkt-threejs-blueprint` (случайные числа с зерном), подключённую из соседней папки (`file:../pkt-threejs-blueprint`), пока она не опубликована: сначала соберите её там (`npm install && npm run build`), потом `npm install` здесь.
-
 ```bash
 npm install
 npm run dev

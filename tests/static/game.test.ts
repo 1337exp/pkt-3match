@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Board, EMPTY } from '../../src/shared/core/board';
 import { findClusters } from '../../src/shared/core/clusters';
-import { mulberry32 } from '../../src/shared/core/rng';
+import { mulberry32 } from '@1337exp/pkt-threejs-blueprint/rng';
 import { Game } from '../../src/static/game';
 
 describe('ход игрока', () => {

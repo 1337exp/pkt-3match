@@ -1,6 +1,6 @@
 import { Board, fillBoard, type Cell } from '../shared/core/board';
 import { pathCells } from '../shared/core/path';
-import { mulberry32, type Rng } from '../shared/core/rng';
+import { mulberry32, type Rng } from '@1337exp/pkt-threejs-blueprint/rng';
 import { resolve, type Resolution } from './resolve';
 
 export interface GameOptions {

@@ -1,6 +1,6 @@
 import { EMPTY, type Board, type Cell } from '../shared/core/board';
 import { findClusters, type Cluster } from '../shared/core/clusters';
-import { randomInt, type Rng } from '../shared/core/rng';
+import { randomInt, type Rng } from '@1337exp/pkt-threejs-blueprint/rng';
 
 /** Шар упал из клетки `from` в клетку `to` в том же столбце. */
 export interface Fall {

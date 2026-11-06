@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Board, EMPTY, fillBoard } from '../../src/shared/core/board';
 import { findClusters } from '../../src/shared/core/clusters';
-import { mulberry32 } from '../../src/shared/core/rng';
+import { mulberry32 } from '@1337exp/pkt-threejs-blueprint/rng';
 
 describe('первое заполнение', () => {
     it('без троек и без пустот', () => {

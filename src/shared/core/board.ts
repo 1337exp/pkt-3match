@@ -1,4 +1,4 @@
-import { randomInt, type Rng } from './rng';
+import { randomInt, type Rng } from '@1337exp/pkt-threejs-blueprint/rng';
 
 /** Пустая клетка (шар лопнул, ждёт падения соседей). */
 export const EMPTY = -1;

@@ -1,7 +1,7 @@
 import { Board, EMPTY, fillBoard, type Cell } from '../shared/core/board';
 import { findClusters } from '../shared/core/clusters';
 import { pathCells } from '../shared/core/path';
-import { mulberry32, randomInt, type Rng } from '../shared/core/rng';
+import { mulberry32, randomInt, type Rng } from '@1337exp/pkt-threejs-blueprint/rng';
 
 /** Шаг симуляции. Режим копит время кадров и вызывает `tick(STEP)` столько раз, сколько набралось. */
 export const STEP = 1 / 60;
